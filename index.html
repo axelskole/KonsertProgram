@@ -59,33 +59,39 @@
 </head>
 <body class="antialiased">
 
+    <!-- Språk-knapp (Language Toggle) -->
+    <button onclick="toggleLanguage()" class="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex items-center gap-2 bg-black/40 hover:bg-white/10 border border-white/20 backdrop-blur-md px-4 py-2 rounded-full transition duration-300 shadow-lg group">
+        <span id="lang-btn-icon" class="text-xl transition-transform group-hover:scale-110">🇬🇧</span> 
+        <span id="lang-btn-text" class="font-medium text-sm tracking-wide">English</span>
+    </button>
+
     <!-- Header / Hero -->
     <header class="hero-gradient min-h-[60vh] flex flex-col justify-center items-center px-6 text-center border-b border-white/10">
-        <p class="text-sm tracking-[0.3em] uppercase opacity-60 mb-4">Bacheloroppgave - Musikk</p>
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Fra Støy til Stillhet</h1>
-        <p class="max-w-2xl text-lg opacity-80 leading-relaxed">
+        <p data-i18n="hero-subtitle" class="text-sm tracking-[0.3em] uppercase opacity-60 mb-4">Bacheloroppgave - Musikk</p>
+        <h1 data-i18n="hero-title" class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Fra Støy til Stillhet</h1>
+        <p data-i18n="hero-desc" class="max-w-2xl text-lg opacity-80 leading-relaxed">
             En sammenhengende konsertforestilling som utforsker forskjellige tolkninger av verden og livet gjennom musikk, lyddesign og visuelle uttrykk.
         </p>
-        <div class="mt-10 flex gap-4">
-            <a href="#om-oppgaven" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-opacity-90 transition">Om prosjektet</a>
-            <a href="#sangtekster" class="px-6 py-3 border border-white/20 rounded-full hover:bg-white/5 transition">Sangtekster & Betydning</a>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#om-oppgaven" data-i18n="nav-about" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-opacity-90 transition">Om prosjektet</a>
+            <a href="#sangtekster" data-i18n="nav-lyrics" class="px-6 py-3 border border-white/20 rounded-full hover:bg-white/5 transition">Sangtekster & Betydning</a>
         </div>
     </header>
 
     <!-- Om Oppgaven -->
     <section id="om-oppgaven" class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-bold mb-8 border-l-4 border-white pl-4">Om oppgaven</h2>
+        <h2 data-i18n="about-heading" class="text-3xl font-bold mb-8 border-l-4 border-white pl-4">Om oppgaven</h2>
         <div class="space-y-6 text-lg opacity-80 leading-relaxed">
-            <p>
+            <p data-i18n="about-p1">
                 Da jeg først ble bedt om å tenke på problemstilling til bacheloroppgaven, så tenkte jeg med en gang: 
                 «Hva kan jeg skrive om som gjør at jeg kan fokusere mest på selve konserten?» 
             </p>
-            <p>
+            <p data-i18n="about-p2">
                 Dermed kom jeg fram til å skrive oppgaven min om hvordan jeg kan produsere en konsert som en helhetlig opplevelse. 
                 I stedet for en tradisjonell konsert med pauser og tale mellom låtene, har jeg fokusert på å skape en ubrutt 
                 forestilling der musikk, lyddesign og visuelle elementer er med på å formidle et felles tema.
             </p>
-            <p>
+            <p data-i18n="about-p3">
                 Tematikken for kvelden handler om ulike livssyn og perspektiver vi mennesker har på livet og døden. 
                 Jeg prøver ikke å fortelle hvilke som er best, men ønsker heller å gi innsikt i hvordan disse synspunktene kan føles og oppleves.
             </p>
@@ -95,7 +101,7 @@
     <!-- Sangtekster & Betydning Seksjon -->
     <section id="sangtekster" class="bg-[#0f0f0f] py-20 px-6 border-y border-white/5">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center">Reisen gjennom låtene</h2>
+            <h2 data-i18n="journey-heading" class="text-3xl font-bold mb-10 text-center">Reisen gjennom låtene</h2>
             
             <!-- Hovednavigasjon for låter -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 border-b border-white/10 pb-4">
@@ -114,8 +120,8 @@
                     <div class="flex flex-col md:flex-row justify-between items-baseline mb-6 gap-4">
                         <h3 class="text-3xl font-bold">Time <span class="text-lg font-normal opacity-50 block md:inline">/ Pink Floyd</span></h3>
                         <div class="flex gap-2 bg-white/5 p-1 rounded-lg">
-                            <button onclick="toggleContent('time', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
-                            <button onclick="toggleContent('time', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
+                            <button data-i18n="tab-tekst" onclick="toggleContent('time', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
+                            <button data-i18n="tab-tolkning" onclick="toggleContent('time', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
                         </div>
                     </div>
 
@@ -148,15 +154,14 @@ It's good to warm my bones beside the fire
 Far away across the field
 The tolling of the iron bell
 Calls the faithful to their knees
-To hear the softly spoken magic spells
-                        </pre>
+To hear the softly spoken magic spells</pre>
                     </div>
                     <div id="time-meaning" class="content-toggle-section space-y-4 text-lg opacity-80 leading-relaxed">
-                        <p class="font-semibold text-blue-400">Tema: Tidsjag og frykten for døden.</p>
-                        <p>
+                        <p data-i18n="time-theme" class="font-semibold text-blue-400">Tema: Tidsjag og frykten for døden.</p>
+                        <p data-i18n="time-p1">
                             Vi starter reisen her. "Time" skildrer det universelle tidsjaget og den snikende frykten for å gå tom for tid før man egentlig har begynt å leve. 
                         </p>
-                        <p>
+                        <p data-i18n="time-p2">
                             Sangen fanger følelsen av at dagene forsvinner i uinteressante gjøremål, helt til man en dag innser at ti år har passert. Det er en erkjennelse av at for hver dag som går, går tiden fortere, og døden kommer stadig nærmere. Bildet av å "Hanging on in quiet desperation" setter tonen for forestillingens første kapittel: Frykten for det uunngåelige slutten og angeren over tid som er kastet bort.
                         </p>
                     </div>
@@ -167,8 +172,8 @@ To hear the softly spoken magic spells
                     <div class="flex flex-col md:flex-row justify-between items-baseline mb-6 gap-4">
                         <h3 class="text-3xl font-bold">Holy Holy <span class="text-lg font-normal opacity-50 block md:inline">/ Geordie Greep</span></h3>
                         <div class="flex gap-2 bg-white/5 p-1 rounded-lg">
-                            <button onclick="toggleContent('holy', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
-                            <button onclick="toggleContent('holy', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
+                            <button data-i18n="tab-tekst" onclick="toggleContent('holy', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
+                            <button data-i18n="tab-tolkning" onclick="toggleContent('holy', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
                         </div>
                     </div>
 
@@ -266,15 +271,14 @@ Thank you so much
 We'll meet the same time next week
 And the next week after that too
 And the next week after that
-And the next month, and the next
-                        </pre>
+And the next month, and the next</pre>
                     </div>
                     <div id="holy-meaning" class="content-toggle-section space-y-4 text-lg opacity-80 leading-relaxed">
-                        <p class="font-semibold text-blue-400">Tema: Status og det overfladiske livet.</p>
-                        <p>
+                        <p data-i18n="holy-theme" class="font-semibold text-blue-400">Tema: Status og det overfladiske livet.</p>
+                        <p data-i18n="holy-p1">
                             Her beveger vi oss over i et livssyn styrt av status og fasade. Sangen handler om en karakter som er besatt av å fremstå som betydningsfull, en "playboy" som hevder han er "Holy" og at alle vet hvem han er.
                         </p>
-                        <p>
+                        <p data-i18n="holy-p2">
                             Gjennom sangen blir det imidlertid klart at alt er et skuespill. Han har betalt en jente for å spille rollen som en som blir sjekket opp, slik at han skal se bra ut for de som ser på. Dette representerer et livssyn der meningen finnes i andres blikk og i den overfladiske makten man kan kjøpe seg. Det er et forsøk på å fylle tomrommet med en konstruert storhet.
                         </p>
                     </div>
@@ -285,8 +289,8 @@ And the next month, and the next
                     <div class="flex flex-col md:flex-row justify-between items-baseline mb-6 gap-4">
                         <h3 class="text-3xl font-bold">Paranoid Android <span class="text-lg font-normal opacity-50 block md:inline">/ Radiohead</span></h3>
                         <div class="flex gap-2 bg-white/5 p-1 rounded-lg">
-                            <button onclick="toggleContent('paranoid', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
-                            <button onclick="toggleContent('paranoid', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
+                            <button data-i18n="tab-tekst" onclick="toggleContent('paranoid', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
+                            <button data-i18n="tab-tolkning" onclick="toggleContent('paranoid', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
                         </div>
                     </div>
 
@@ -343,15 +347,14 @@ The panic, the vomit (from a great height)
 The panic, the vomit (from a great height)
 
 God loves His children
-God loves His children, yeah
-                        </pre>
+God loves His children, yeah</pre>
                     </div>
                     <div id="paranoid-meaning" class="content-toggle-section space-y-4 text-lg opacity-80 leading-relaxed">
-                        <p class="font-semibold text-blue-400">Tema: Kynisme, depresjon og forakt.</p>
-                        <p>
+                        <p data-i18n="paranoid-theme" class="font-semibold text-blue-400">Tema: Kynisme, depresjon og forakt.</p>
+                        <p data-i18n="paranoid-p1">
                             Dette er det motsatte perspektivet av "Holy, Holy". Her møter vi en kynisk og depressiv karakter som hater alt og alle som prøver å oppnå noe. Han forakter ambisjoner, makt og overfladiskhet (personifisert som "Gucci little piggy").
                         </p>
-                        <p>
+                        <p data-i18n="paranoid-p2">
                             Karakteren er imidlertid dypt hyklersk; han hater makten, men drømmer selv om å bli konge for å kunne få hevn på de han misliker. Han identifiserer seg med roboten Marvin fra *The Hitchhiker's Guide to the Galaxy*, en robot med en hjerne på størrelse med en planet, som tvinges til meningsløse oppgaver. Sangen ender i et desperat ønske om dommedag ("rain down on me"), og en bitter ironi over en skaper som angivelig elsker sine barn mens verden brenner.
                         </p>
                     </div>
@@ -362,8 +365,8 @@ God loves His children, yeah
                     <div class="flex flex-col md:flex-row justify-between items-baseline mb-6 gap-4">
                         <h3 class="text-3xl font-bold">Grace <span class="text-lg font-normal opacity-50 block md:inline">/ Jeff Buckley</span></h3>
                         <div class="flex gap-2 bg-white/5 p-1 rounded-lg">
-                            <button onclick="toggleContent('grace', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
-                            <button onclick="toggleContent('grace', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
+                            <button data-i18n="tab-tekst" onclick="toggleContent('grace', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
+                            <button data-i18n="tab-tolkning" onclick="toggleContent('grace', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
                         </div>
                     </div>
 
@@ -412,15 +415,14 @@ So easy to know and forget with this kiss
 I'm not afraid to go but it goes so slow
 
 Wait in the fire.
-Wait in the fire.
-                        </pre>
+Wait in the fire.</pre>
                     </div>
                     <div id="grace-meaning" class="content-toggle-section space-y-4 text-lg opacity-80 leading-relaxed">
-                        <p class="font-semibold text-blue-400">Tema: Rensing av egoet og aksept av slutten.</p>
-                        <p>
+                        <p data-i18n="grace-theme" class="font-semibold text-blue-400">Tema: Rensing av egoet og aksept av slutten.</p>
+                        <p data-i18n="grace-p1">
                             I "Grace" skjer det et vendepunkt. Vi forlater kynismen og går inn i en erkjennelse av døden preget av verdighet og kjærlighet. Sangen handler om å håndtere sin egen bortgang med "Grace". 
                         </p>
-                        <p>
+                        <p data-i18n="grace-p2">
                             Begrepet "Wait in the fire" knyttes her til en Sufi-mystisk idé (som blant annet Rumi beskrev). Ilden representerer en kjærlighet som er så sterk at den brenner bort alt som ikke er rent, inkludert egoet. Karakteren er ikke lenger redd for selve døden, men kjenner på frykten for å bli glemt. Ved å vente i flammen, brenner han bort egoets behov for anerkjennelse og status, slik at han kan slippe taket i fred.
                         </p>
                     </div>
@@ -431,8 +433,8 @@ Wait in the fire.
                     <div class="flex flex-col md:flex-row justify-between items-baseline mb-6 gap-4">
                         <h3 class="text-3xl font-bold">Pyramid Song <span class="text-lg font-normal opacity-50 block md:inline">/ Radiohead</span></h3>
                         <div class="flex gap-2 bg-white/5 p-1 rounded-lg">
-                            <button onclick="toggleContent('pyramid', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
-                            <button onclick="toggleContent('pyramid', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
+                            <button data-i18n="tab-tekst" onclick="toggleContent('pyramid', 'lyrics', this)" class="sub-nav-btn active px-4 py-1 rounded-md text-sm transition">Tekst</button>
+                            <button data-i18n="tab-tolkning" onclick="toggleContent('pyramid', 'meaning', this)" class="sub-nav-btn px-4 py-1 rounded-md text-sm transition">Tolkning</button>
                         </div>
                     </div>
 
@@ -458,15 +460,14 @@ All my past and futures
 And we all went to heaven in a little row boat
 There was nothing to fear and nothing to doubt
 There was nothing to fear and nothing to doubt
-There was nothing to fear and nothing to doubt
-                        </pre>
+There was nothing to fear and nothing to doubt</pre>
                     </div>
                     <div id="pyramid-meaning" class="content-toggle-section space-y-4 text-lg opacity-80 leading-relaxed">
-                        <p class="font-semibold text-blue-400">Tema: Enhet, fred og universets helhet.</p>
-                        <p>
+                        <p data-i18n="pyramid-theme" class="font-semibold text-blue-400">Tema: Enhet, fred og universets helhet.</p>
+                        <p data-i18n="pyramid-p1">
                             Vi avslutter reisen med selve døden, men nå i et helt annet lys enn i åpningslåta. Der "Time" skildret frykten for døden, skildrer "Pyramid Song" lettelsen over å endelig bli en del av noe større.
                         </p>
-                        <p>
+                        <p data-i18n="pyramid-p2">
                             Døden fremstilles her som en elv der alle er like, og der fortid og fremtid smelter sammen. Det er et bilde på universell enhet og harmoni. Ved reisens slutt er det ingenting igjen å frykte eller tvile på. Karakteren har funnet ro i at vi alle er en del av det samme universet, og døden er ikke en slutt, men en overgang til en tilstand av fullstendig fred.
                         </p>
                     </div>
@@ -478,66 +479,192 @@ There was nothing to fear and nothing to doubt
 
     <!-- Medvirkende -->
     <section class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center border-b border-white/10 pb-4">Tusen hjertelig takk til</h2>
+        <h2 data-i18n="thanks-heading" class="text-3xl font-bold mb-12 text-center border-b border-white/10 pb-4">Tusen hjertelig takk til</h2>
         
         <div class="grid md:grid-cols-2 gap-12">
             <div>
-                <h3 class="text-xl font-semibold mb-4 text-white">Ensemblet</h3>
+                <h3 data-i18n="thanks-ensemble" class="text-xl font-semibold mb-4 text-white">Ensemblet</h3>
                 <ul class="space-y-2 opacity-70">
-                    <li><strong>Vokal/Kor:</strong> Paulina Hostacna, Aurora Jevanord Rønneberg, Marthe Hoflandsdal, Oscar Andras</li>
-                    <li><strong>Blås:</strong> Marthe Hoflandsdal, Oscar Andras, Ida Sofie Østli Jørgensen, Cel Rygh Storli, Nicholas Vesterkjær</li>
-                    <li><strong>Gitar:</strong> Benjamin Berseth, Ruben Blindheim, Knut-Erik Nygård</li>
-                    <li><strong>Keys:</strong> Ilyinch McLeod Datuin</li>
-                    <li><strong>Bass:</strong> Mathias Fylkesnes</li>
-                    <li><strong>Trommer:</strong> Stefan Keerend-Larsen</li>
-                    <li><strong>Perkusjon:</strong> Aleksander Trondovich Husby</li>
+                    <li><strong data-i18n="role-vocal">Vokal/Kor:</strong> Paulina Hostacna, Aurora Jevanord Rønneberg, Marthe Hoflandsdal, Oscar Andras</li>
+                    <li><strong data-i18n="role-horns">Blås:</strong> Marthe Hoflandsdal, Oscar Andras, Ida Sofie Østli Jørgensen, Cel Rygh Storli, Nicholas Vesterkjær</li>
+                    <li><strong data-i18n="role-guitar">Gitar:</strong> Benjamin Berseth, Ruben Blindheim, Knut-Erik Nygård</li>
+                    <li><strong data-i18n="role-keys">Keys:</strong> Ilyinch McLeod Datuin</li>
+                    <li><strong data-i18n="role-bass">Bass:</strong> Mathias Fylkesnes</li>
+                    <li><strong data-i18n="role-drums">Trommer:</strong> Stefan Keerend-Larsen</li>
+                    <li><strong data-i18n="role-perc">Perkusjon:</strong> Aleksander Trondovich Husby</li>
                 </ul>
             </div>
             <div>
-                <h3 class="text-xl font-semibold mb-4 text-white">Produksjon</h3>
+                <h3 data-i18n="thanks-prod" class="text-xl font-semibold mb-4 text-white">Produksjon</h3>
                 <ul class="space-y-2 opacity-70 mb-8">
-                    <li><strong>Illustrasjoner:</strong> Birgitte Emilie Trampe Kindt, Gustav Klingen, Frøya Mork, Axel Cornelius Ahlquist Slagstad</li>
-                    <li><strong>Lydtekniker:</strong> Tobias Johnskareng</li>
-                    <li><strong>Lysdesign/Tekniker:</strong> Benjamin Aalmo</li>
+                    <li><strong data-i18n="role-illus">Illustrasjoner:</strong> Birgitte Emilie Trampe Kindt, Gustav Klingen, Frøya Mork, Axel Cornelius Ahlquist Slagstad</li>
+                    <li><strong data-i18n="role-sound">Lydtekniker:</strong> Tobias Johnskareng</li>
+                    <li><strong data-i18n="role-light">Lysdesign/Tekniker:</strong> Benjamin Aalmo</li>
                 </ul>
-                <h3 class="text-xl font-semibold mb-4 text-white">Praktisk</h3>
+                <h3 data-i18n="thanks-prac" class="text-xl font-semibold mb-4 text-white">Praktisk</h3>
                 <p class="opacity-70">
-                    <strong>Sted:</strong> Rokken Studenthus, Volda<br>
-                    <strong>Tid:</strong> Tirsdag 17. Mars kl. 19:00<br>
-                    <strong>Merk:</strong> Dørene lukkes ved konsertstart.
+                    <strong data-i18n="prac-loc">Sted:</strong> Rokken Studenthus, Volda<br>
+                    <strong data-i18n="prac-time">Tid:</strong> <span data-i18n="prac-time-val">Tirsdag 17. Mars kl. 19:00</span><br>
+                    <strong data-i18n="prac-note">Merk:</strong> <span data-i18n="prac-note-val">Dørene lukkes ved konsertstart.</span>
                 </p>
             </div>
         </div>
     </section>
 
     <footer class="py-12 text-center border-t border-white/5 opacity-40 text-sm">
-        <p>&copy; 2026 Bacheloroppgave - Axel Cornelius Ahlquist Slagstad</p>
+        <p data-i18n="footer-text">&copy; 2026 Bacheloroppgave - Axel Cornelius Ahlquist Slagstad</p>
     </footer>
 
     <script>
+        // --- TRANSLATION DATA ---
+        const translations = {
+            no: {
+                "hero-subtitle": "Bacheloroppgave - Musikk",
+                "hero-title": "Fra Støy til Stillhet",
+                "hero-desc": "En sammenhengende konsertforestilling som utforsker forskjellige tolkninger av verden og livet gjennom musikk, lyddesign og visuelle uttrykk.",
+                "nav-about": "Om prosjektet",
+                "nav-lyrics": "Sangtekster & Betydning",
+                "about-heading": "Om oppgaven",
+                "about-p1": "Da jeg først ble bedt om å tenke på problemstilling til bacheloroppgaven, så tenkte jeg med en gang: «Hva kan jeg skrive om som gjør at jeg kan fokusere mest på selve konserten?»",
+                "about-p2": "Dermed kom jeg fram til å skrive oppgaven min om hvordan jeg kan produsere en konsert som en helhetlig opplevelse. I stedet for en tradisjonell konsert med pauser og tale mellom låtene, har jeg fokusert på å skape en ubrutt forestilling der musikk, lyddesign og visuelle elementer er med på å formidle et felles tema.",
+                "about-p3": "Tematikken for kvelden handler om ulike livssyn og perspektiver vi mennesker har på livet og døden. Jeg prøver ikke å fortelle hvilke som er best, men ønsker heller å gi innsikt i hvordan disse synspunktene kan føles og oppleves.",
+                "journey-heading": "Reisen gjennom låtene",
+                "tab-tekst": "Tekst",
+                "tab-tolkning": "Tolkning",
+                "time-theme": "Tema: Tidsjag og frykten for døden.",
+                "time-p1": "Vi starter reisen her. \"Time\" skildrer det universelle tidsjaget og den snikende frykten for å gå tom for tid før man egentlig har begynt å leve.",
+                "time-p2": "Sangen fanger følelsen av at dagene forsvinner i uinteressante gjøremål, helt til man en dag innser at ti år har passert. Det er en erkjennelse av at for hver dag som går, går tiden fortere, og døden kommer stadig nærmere. Bildet av å \"Hanging on in quiet desperation\" setter tonen for forestillingens første kapittel: Frykten for det uunngåelige slutten og angeren over tid som er kastet bort.",
+                "holy-theme": "Tema: Status og det overfladiske livet.",
+                "holy-p1": "Her beveger vi oss over i et livssyn styrt av status og fasade. Sangen handler om en karakter som er besatt av å fremstå som betydningsfull, en \"playboy\" som hevder han er \"Holy\" og at alle vet hvem han er.",
+                "holy-p2": "Gjennom sangen blir det imidlertid klart at alt er et skuespill. Han har betalt en jente for å spille rollen som en som blir sjekket opp, slik at han skal se bra ut for de som ser på. Dette representerer et livssyn der meningen finnes i andres blikk og i den overfladiske makten man kan kjøpe seg. Det er et forsøk på å fylle tomrommet med en konstruert storhet.",
+                "paranoid-theme": "Tema: Kynisme, depresjon og forakt.",
+                "paranoid-p1": "Dette er det motsatte perspektivet av \"Holy, Holy\". Her møter vi en kynisk og depressiv karakter som hater alt og alle som prøver å oppnå noe. Han forakter ambisjoner, makt og overfladiskhet (personifisert som \"Gucci little piggy\").",
+                "paranoid-p2": "Karakteren er imidlertid dypt hyklersk; han hater makten, men drømmer selv om å bli konge for å kunne få hevn på de han misliker. Han identifiserer seg med roboten Marvin fra *The Hitchhiker's Guide to the Galaxy*, en robot med en hjerne på størrelse med en planet, som tvinges til meningsløse oppgaver. Sangen ender i et desperat ønske om dommedag (\"rain down on me\"), og en bitter ironi over en skaper som angivelig elsker sine barn mens verden brenner.",
+                "grace-theme": "Tema: Rensing av egoet og aksept av slutten.",
+                "grace-p1": "I \"Grace\" skjer det et vendepunkt. Vi forlater kynismen og går inn i en erkjennelse av døden preget av verdighet og kjærlighet. Sangen handler om å håndtere sin egen bortgang med \"Grace\".",
+                "grace-p2": "Begrepet \"Wait in the fire\" knyttes her til en Sufi-mystisk idé (som blant annet Rumi beskrev). Ilden representerer en kjærlighet som er så sterk at den brenner bort alt som ikke er rent, inkludert egoet. Karakteren er ikke lenger redd for selve døden, men kjenner på frykten for å bli glemt. Ved å vente i flammen, brenner han bort egoets behov for anerkjennelse og status, slik at han kan slippe taket i fred.",
+                "pyramid-theme": "Tema: Enhet, fred og universets helhet.",
+                "pyramid-p1": "Vi avslutter reisen med selve døden, men nå i et helt annet lys enn i åpningslåta. Der \"Time\" skildret frykten for døden, skildrer \"Pyramid Song\" lettelsen over å endelig bli en del av noe større.",
+                "pyramid-p2": "Døden fremstilles her som en elv der alle er like, og der fortid og fremtid smelter sammen. Det er et bilde på universell enhet og harmoni. Ved reisens slutt er det ingenting igjen å frykte eller tvile på. Karakteren har funnet ro i at vi alle er en del av det samme universet, og døden er ikke en slutt, men en overgang til en tilstand av fullstendig fred.",
+                "thanks-heading": "Tusen hjertelig takk til",
+                "thanks-ensemble": "Ensemblet",
+                "role-vocal": "Vokal/Kor:",
+                "role-horns": "Blås:",
+                "role-guitar": "Gitar:",
+                "role-keys": "Keys:",
+                "role-bass": "Bass:",
+                "role-drums": "Trommer:",
+                "role-perc": "Perkusjon:",
+                "thanks-prod": "Produksjon",
+                "role-illus": "Illustrasjoner:",
+                "role-sound": "Lydtekniker:",
+                "role-light": "Lysdesign/Tekniker:",
+                "thanks-prac": "Praktisk",
+                "prac-loc": "Sted:",
+                "prac-time": "Tid:",
+                "prac-time-val": "Tirsdag 17. Mars kl. 19:00",
+                "prac-note": "Merk:",
+                "prac-note-val": "Dørene lukkes ved konsertstart.",
+                "footer-text": "© 2026 Bacheloroppgave - Axel Cornelius Ahlquist Slagstad"
+            },
+            en: {
+                "hero-subtitle": "Bachelor's Thesis - Music",
+                "hero-title": "From Noise to Silence",
+                "hero-desc": "A continuous concert performance exploring different interpretations of the world and life through music, sound design, and visual expressions.",
+                "nav-about": "About the project",
+                "nav-lyrics": "Lyrics & Meaning",
+                "about-heading": "About the thesis",
+                "about-p1": "When I was first asked to think about the research question for my bachelor's thesis, I immediately thought: 'What can I write about that allows me to focus mostly on the concert itself?'",
+                "about-p2": "Thus, I decided to write my thesis on how to produce a concert as a holistic experience. Instead of a traditional concert with breaks and talking between songs, I have focused on creating an unbroken performance where music, sound design, and visual elements help convey a common theme.",
+                "about-p3": "The theme for the evening is about the different worldviews and perspectives we humans have on life and death. I'm not trying to say which is best, but rather wish to provide insight into how these viewpoints might feel and be experienced.",
+                "journey-heading": "The journey through the songs",
+                "tab-tekst": "Lyrics",
+                "tab-tolkning": "Meaning",
+                "time-theme": "Theme: The race against time and the fear of death.",
+                "time-p1": "We start the journey here. \"Time\" depicts the universal race against time and the creeping fear of running out of time before one has truly begun to live.",
+                "time-p2": "The song captures the feeling of days disappearing into uninteresting tasks, until one day you realize ten years have passed. It is an acknowledgment that for every passing day, time speeds up, and death draws ever closer. The image of \"Hanging on in quiet desperation\" sets the tone for the performance's first chapter: The fear of the inevitable end and the regret over wasted time.",
+                "holy-theme": "Theme: Status and the superficial life.",
+                "holy-p1": "Here we move into a worldview driven by status and facade. The song is about a character obsessed with appearing important, a \"playboy\" who claims he is \"Holy\" and that everyone knows who he is.",
+                "holy-p2": "Throughout the song, however, it becomes clear that everything is an act. He has paid a girl to play the role of someone being picked up, so he looks good to onlookers. This represents a worldview where meaning is found in the gaze of others and the superficial power one can buy. It is an attempt to fill the void with a constructed greatness.",
+                "paranoid-theme": "Theme: Cynicism, depression, and contempt.",
+                "paranoid-p1": "This is the opposite perspective of \"Holy, Holy\". Here we meet a cynical and depressive character who hates everything and everyone trying to achieve something. He despises ambition, power, and superficiality (personified as the \"Gucci little piggy\").",
+                "paranoid-p2": "The character, however, is deeply hypocritical; he hates power, but dreams of becoming king to take revenge on those he dislikes. He identifies with Marvin the Android from *The Hitchhiker's Guide to the Galaxy*, a robot with a brain the size of a planet, forced to do meaningless tasks. The song ends in a desperate wish for doomsday (\"rain down on me\"), and a bitter irony about a creator who allegedly loves his children while the world burns.",
+                "grace-theme": "Theme: Cleansing of the ego and acceptance of the end.",
+                "grace-p1": "In \"Grace\", a turning point occurs. We leave cynicism behind and enter an acknowledgment of death characterized by dignity and love. The song is about handling one's own passing with \"Grace\".",
+                "grace-p2": "The concept of \"Wait in the fire\" is linked here to a Sufi mystical idea (described by Rumi, among others). The fire represents a love so strong it burns away everything impure, including the ego. The character is no longer afraid of death itself, but feels the fear of being forgotten. By waiting in the flame, he burns away the ego's need for recognition and status, allowing him to let go in peace.",
+                "pyramid-theme": "Theme: Unity, peace, and the wholeness of the universe.",
+                "pyramid-p1": "We end the journey with death itself, but now in a completely different light than in the opening track. Where \"Time\" depicted the fear of death, \"Pyramid Song\" depicts the relief of finally becoming part of something greater.",
+                "pyramid-p2": "Death is portrayed here as a river where everyone is equal, and where past and future merge. It is a picture of universal unity and harmony. At the end of the journey, there is nothing left to fear or doubt. The character has found peace in the fact that we are all part of the same universe, and death is not an end, but a transition to a state of complete peace.",
+                "thanks-heading": "A heartfelt thank you to",
+                "thanks-ensemble": "The Ensemble",
+                "role-vocal": "Vocals/Choir:",
+                "role-horns": "Horns:",
+                "role-guitar": "Guitar:",
+                "role-keys": "Keys:",
+                "role-bass": "Bass:",
+                "role-drums": "Drums:",
+                "role-perc": "Percussion:",
+                "thanks-prod": "Production",
+                "role-illus": "Illustrations:",
+                "role-sound": "Sound Engineer:",
+                "role-light": "Lighting Design/Tech:",
+                "thanks-prac": "Practical Info",
+                "prac-loc": "Location:",
+                "prac-time": "Time:",
+                "prac-time-val": "Tuesday, March 17th at 19:00",
+                "prac-note": "Note:",
+                "prac-note-val": "Doors close at the start of the concert.",
+                "footer-text": "© 2026 Bachelor's Thesis - Axel Cornelius Ahlquist Slagstad"
+            }
+        };
+
+        let currentLang = 'no';
+
+        function toggleLanguage() {
+            // Bytt språk state
+            currentLang = currentLang === 'no' ? 'en' : 'no';
+            document.documentElement.lang = currentLang;
+
+            // Oppdater alt innhold med data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Oppdater selve knappen
+            const btnIcon = document.getElementById('lang-btn-icon');
+            const btnText = document.getElementById('lang-btn-text');
+            
+            if (currentLang === 'no') {
+                btnIcon.innerText = '🇬🇧';
+                btnText.innerText = 'English';
+            } else {
+                btnIcon.innerText = '🇳🇴';
+                btnText.innerText = 'Norsk';
+            }
+        }
+
+        // --- EKSISTERENDE LOGIKK ---
         function showSong(id, btn) {
-            // Skjul alle hovedseksjoner for låter
             document.querySelectorAll('.lyric-section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Fjern aktiv klasse fra alle hovedknapper
             document.querySelectorAll('.nav-btn').forEach(b => {
                 b.classList.remove('active');
             });
             
-            // Vis valgt låt
             document.getElementById(id).classList.add('active');
             btn.classList.add('active');
 
-            // Reset til "Tekst" som standard når man bytter låt
             const songId = id;
             const lyricsToggle = document.getElementById(songId + '-lyrics');
             const meaningToggle = document.getElementById(songId + '-meaning');
             
-            // Finn knappene inne i den aktive seksjonen
             const subBtns = document.getElementById(id).querySelectorAll('.sub-nav-btn');
             subBtns.forEach(b => b.classList.remove('active'));
-            subBtns[0].classList.add('active'); // Sett "Tekst" som aktiv
+            subBtns[0].classList.add('active'); 
 
             lyricsToggle.classList.add('active');
             meaningToggle.classList.remove('active');
